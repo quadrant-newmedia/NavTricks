@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Page A</title>
+    <script defer src="/NavTricks.js"></script>
+    <script defer src="/back-or-up-button.js"></script>
+</head>
+<body class="back-or-up-button-loading">
+    <!-- Note - the &nbsp; ensures that the placeholder takes up one normal line height while loading -->
+    <back-or-up-button>&nbsp;</back-or-up-button>
+    <h1>This is page A</h1>
+    <p><a href="#target1">Target 1</a></p>
+    <p><a href="#target2">Target 2</a></p>
+    <p><button onclick="history.pushState({foo: 'bar'}, '','');">pushState</button>
+    <p><button onclick="history.pushState('not-an-object', '','');">pushState (invalid)</button>
+    <h2 id="target1">Test Target</h2>
+    <h2 id="target2">Test Target 2</h2>
+</body>
+</html>
