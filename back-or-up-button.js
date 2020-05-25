@@ -9,7 +9,7 @@ addEventListener('load', function() {
     }
     else NavTricks.withParentPage(function(page) {
         for (var i = placeholders.length - 1; i >= 0; i--) {
-            placeholders[i].outerHTML = '<a href="'+page.url+'">^ '+
+            placeholders[i].outerHTML = '<a href="'+page.path+'">^ '+
                 page.title||'Parent Page' +
                 '<a>'
         }

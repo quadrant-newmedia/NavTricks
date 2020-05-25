@@ -97,7 +97,7 @@ function _withParentPage(path, onsuccess, onfail) {
         // Note - r.response will only be set if response actually contains an html document
         if (200 <= r.status <= 299 && r.response) {
             onsuccess({
-                url: path,
+                path: path,
                 title: r.response.title,
             })
         }
