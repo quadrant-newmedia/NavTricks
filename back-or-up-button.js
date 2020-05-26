@@ -1,15 +1,15 @@
 addEventListener('load', function() {
     var placeholders = document.querySelectorAll('back-or-up-button');
     if (NavTricks.previousPageIsInternal()) {
-        for (var i = placeholders.length - 1; i >= 0; i--) {
-            placeholders[i].outerHTML = '<button onclick="NavTricks.returnToPreviousPage()">&lt '+
+        for (var i = 0; i < placeholders.length; i++) {
+            placeholders[i].outerHTML = '<button onclick="NavTricks.returnToPreviousPage()" class="BackButton" aria-label="back">◀ '+
                 NavTricks.previousPage.title || 'Back' +
                 '</button>';
         }
     }
     else NavTricks.withParentPage(function(page) {
-        for (var i = placeholders.length - 1; i >= 0; i--) {
-            placeholders[i].outerHTML = '<a href="'+page.path+'">^ '+
+        for (var i = 0; i < placeholders.length; i++) {
+            placeholders[i].outerHTML = '<a href="'+page.path+'" class="ParentLink">▲ '+
                 page.title||'Parent Page' +
                 '<a>'
         }
