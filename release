@@ -1,0 +1,16 @@
+#!/bin/bash
+version=`cat VERSION`
+
+dest="releases/NavTricks-${version}.js"
+
+if [ -f $dest ]; then
+    echo "Looks like you didn't update VERSION"
+    exit 1
+fi
+
+cp NavTricks.js $dest
+
+git add -A
+git commit
+git tag -m '' v$version
+git push
