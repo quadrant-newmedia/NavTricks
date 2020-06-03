@@ -83,6 +83,7 @@ function withParentPage(onsuccess, onfail) {
 function _withParentPage(path, onsuccess, onfail) {
     if (path == '/') {
         onfail();
+        return
     }
     // Pop trailing slash, if present
     if (path[path.length-1] == '/') {
