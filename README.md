@@ -41,21 +41,6 @@ Will throw an error if there is no previous page (ie. `NavTricks.previousPage ==
 
 Asynchronous. 
 
-### `replaceCurrentPage(url) -> undefined`
-
-Useful on "form pages", which, after completion, should be "overwritten" by some other page.
-
-Sample use case:
-- user is on "Author List" page
-- user clicks "Add Author" link, which navigates to a new page
-- user completes the add author form, which is handled via javascript
-- the "Add Author" page executes `NavTricks.replaceCurrentPage(url_of_newly_created_author)`
-- the user is now on the "Author Detail" page of the new author, and can go back directly to the "Author List"
-
-This is basically just `location.replace(url)`, except that we make sure the next page knows that it's "previous page" is the current page's previous page, rather than the current page itself.
-
-**TODO:** if the current page has used `history.pushState()` or hash links, then first "unwind" those extra history entries (via `history.go(-n)`) before executing `location.replace()`. Wait for a proper test case before implementing.
-
 ### `withParentPage(onSuccess, onFail) -> undefined`
 
 This is mostly intended as a fallback for times when `previousPageIsInternal()` returns false.
