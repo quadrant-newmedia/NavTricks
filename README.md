@@ -54,3 +54,7 @@ If no valid parent page is found, call `onFail()`.
 ## Demo
 
 This folder contains a simple demo of most of the features of NavTricks. Run a server rooted at this folder to see it in action. In particular, have a look at `back-or-up-button.js`. You may want to copy that script to your own project, and modify as needed.
+
+## TODO
+
+back-or-up-button doesn't behave nicely if someone opens a "grandchild" page directly and uses the "parent link". Now (on the child page), rather than having a parent link, we have a back button to the grandchild page. Rather than generating simple parent links, we should create a button which clears current page data from sessionStorage and then navigates (perhaps we should add a `navigateWithoutPreviousPage(url)` method to `NavTricks`.
