@@ -12,7 +12,7 @@ addEventListener('load', function() {
     }
     else NavTricks.withParentPage(function(page) {
         for (var i = 0; i < placeholders.length; i++) {
-            placeholders[i].outerHTML = '<a href="'+page.path+'" class="ParentLink">▲ '+
+            placeholders[i].outerHTML = '<a href="'+page.path+'" class="ParentLink" onclick="if (event.metaKey || event.ctrlKey) return; event.preventDefault(); NavTricks.navigateWithoutPreviousPage(this.href);">▲ '+
                 (page.title||'Parent Page') +
                 '<a>'
         }

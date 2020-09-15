@@ -5,8 +5,16 @@
     <script src="/NavTricks.js"></script>
 </head>
 <body>
-    <a href="a/">Page A</a>
-    <br>
+    <p>
+        <a href="a/">Page A</a>    
+    </p>
 
+    <p>
+        <button type="button" onclick="NavTricks.navigateWithoutPreviousPage('a/');">Go to page A with no back link</button> <small>(this demonstrates how you can link to a page without setting the "previousPage" - useful if this is not the parent of the page you are linking to, and you'd rather have that page generate a parent link than a back button) (TODO: move this link to another page, so the demo is more meaningful)</small>
+    </p>
+
+    <p>
+        <button type="button" onclick="NavTricks.navigateWithoutPreviousPage('a/b/');">Open Grandchild directly</button> <small>(the grandchild page should render "parent links" that can be navigated all the way back the root page)</small>    
+    </p>
 </body>
 </html>
