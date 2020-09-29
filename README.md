@@ -51,6 +51,21 @@ For each possible parent page, try to fetch (GET) the page via xhr. If the reque
 
 If no valid parent page is found, call `onFail()`.
 
+### `replaceCurrentPage(url) -> undefined`
+
+Use whenever you want to replace the current page with a page from another url.
+
+This is basically just `location.replace(url)`, except that:
+- tells the next page it's "previous page" is the current "previous page", rather than the current page
+- unwinds any extra history states (ie. hashlinks) on the current page before navigating
+
+Sample use case:
+- user is on "Author List" page
+- user clicks "Add Author" link, which navigates to a new page
+- user completes the add author form, which is handled via javascript
+- the "Add Author" page executes `NavTricks.replaceCurrentPage(url_of_newly_created_author)`
+- the user is now on the "Author Detail" page of the new author, and can go back directly to the "Author List" (we think this is better than going back to the Add Author form, because that would be unclear - would it add another author, or edit the one just created?)
+.
 ## Demo
 
 This folder contains a simple demo of most of the features of NavTricks. Run a server rooted at this folder to see it in action. In particular, have a look at `back-or-up-button.js`. You may want to copy that script to your own project, and modify as needed.
