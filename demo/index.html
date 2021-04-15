@@ -16,5 +16,12 @@
     <p>
         <button type="button" onclick="NavTricks.navigateWithoutPreviousPage('a/b/');">Open Grandchild directly</button> <small>(the grandchild page should render "parent links" that can be navigated all the way back the root page)</small>    
     </p>
+
+    <h2 id='hash-test'>Test - confirm that qs/hash not lost</h2>
+    Verify that clicking the below buttons actually updates the qs/hash.
+    Note - previous code was failing this test in IE.
+    <button onclick="location.replace('#hash-test'); location.reload();">Update hash</button>
+    <a href="?foo">Update query string</a>
+
 </body>
 </html>
